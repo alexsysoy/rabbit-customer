@@ -2,8 +2,7 @@ package com.example.rabbitcustomer
 
 import com.example.rabbitcustomer.domain.Item
 import com.example.rabbitcustomer.domain.Order
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinModule
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
@@ -11,10 +10,10 @@ import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.web.client.RestTemplate
 import java.util.*
 
-
 class Customer {
 
-    val mapper = ObjectMapper().registerModule(KotlinModule())
+    @Value("\${app.client.name:ivan}")
+    val clientName = "petya"
 
     val restTemplate: RestTemplate = RestTemplate()
 
@@ -25,7 +24,7 @@ class Customer {
 //        val item2 = Item(Random().nextLong(), "Sheets 100")
 
         val order = Order(
-            "1",
+            clientName,
             "Peterburg $random",
             "Marshak $random",
             listOf(item1)
