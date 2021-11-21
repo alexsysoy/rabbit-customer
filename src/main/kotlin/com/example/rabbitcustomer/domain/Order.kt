@@ -20,4 +20,8 @@ class Order (
      * Список заказанных товаров
      */
     val items: List<Item>
-)
+){
+    override fun toString(): String {
+        return "Order(id='$id', address='$address', recipient='$recipient', items=$items)"
+    }
+}

@@ -10,4 +10,8 @@ class Item(
      * Произвольное название
      */
     val name: String
-)
+){
+    override fun toString(): String {
+        return "Item(id=$id, name='$name')"
+    }
+}
