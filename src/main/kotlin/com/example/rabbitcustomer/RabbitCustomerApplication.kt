@@ -11,21 +11,9 @@ import org.springframework.scheduling.annotation.EnableScheduling
 class RabbitCustomerApplication{
 
 	@Bean
-	fun usage() = CommandLineRunner{
-		println("This app uses Spring Profiles to control its behavior.")
-		println("Sample usage: java -jar rabbitapp.jar --app.client.name=ivan")
-	}
-
-//	@Bean
-//	fun tutorial(): CommandLineRunner {
-//		return RabbitAmqpRunner()
-//	}
-
-	@Bean
 	fun customer(): Customer {
 		return Customer()
 	}
-
 }
 
 fun main(args: Array<String>) {

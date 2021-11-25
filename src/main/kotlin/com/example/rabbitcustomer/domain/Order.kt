@@ -1,10 +1,10 @@
 package com.example.rabbitcustomer.domain
 
-class Order (
+data class Order (
     /**
      * Уникальный идентификатор заказа на стороне ретейлера
      */
-    val id: String,
+    val id: String?,
 
     /**
      * Произвольный адрес доставки
@@ -20,8 +20,4 @@ class Order (
      * Список заказанных товаров
      */
     val items: List<Item>
-){
-    override fun toString(): String {
-        return "Order(id='$id', address='$address', recipient='$recipient', items=$items)"
-    }
-}
+)
